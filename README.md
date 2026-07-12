@@ -23,16 +23,14 @@ This is not a stable public gameplay release yet. APIs, registries, generated as
 
 ## Reference repositories
 
-Several external projects are used only as local references while developing this mod. They are intentionally excluded from this repository via `.gitignore`.
+Several external projects are used only as local references while developing this mod as inspiration:
 
-Ignored reference folders include:
-
-- `gregtech6-master`
-- `GregTech-Modern-1.20.1`
-- `Core-Modern-dev`
-- `Modpack-Modern-dev`
-- `TerraFirmaCraft-1.21.x`
-- `GregTech-Odyssey-main`
+- `GregTech6`
+- `GregTech-Modern(1.20.1)`
+- `Core-Modern(Core mod of TFG-Modern)`
+- `TerraFirmaGreg-Modern`
+- `TerraFirmaCraft(1.21.x)`
+- `GregTech-Odyssey`
 
 See [NOTICE.md](NOTICE.md) for attribution and license notes.
 
