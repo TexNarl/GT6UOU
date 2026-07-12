@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "gt6uou:block/raw_blocks/raw_electrotine_block"
+  }
+}

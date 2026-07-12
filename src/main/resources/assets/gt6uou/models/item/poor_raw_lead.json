@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gt6uou:item/poor_raw_lead"
+  }
+}

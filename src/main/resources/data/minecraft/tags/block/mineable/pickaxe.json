@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "gt6uou:stone",
+    "gt6uou:basalt",
+    "gt6uou:granite",
+    "gt6uou:diorite",
+    "gt6uou:andesite",
+    "gt6uou:tuff",
+    "gt6uou:black_granite",
+    "gt6uou:red_granite",
+    "gt6uou:marble",
+    "gt6uou:limestone",
+    "gt6uou:komatiite",
+    "gt6uou:green_schist",
+    "gt6uou:blue_schist",
+    "gt6uou:kimberlite",
+    "gt6uou:quartzite",
+    "gt6uou:slate",
+    "gt6uou:shale",
+    "gt6uou:gabbro",
+    "gt6uou:claystone",
+    "gt6uou:conglomerate",
+    "gt6uou:dolomite",
+    "gt6uou:chert",
+    "gt6uou:chalk",
+    "gt6uou:rhyolite",
+    "gt6uou:dacite",
+    "gt6uou:phyllite",
+    "gt6uou:gneiss"
+  ]
+}

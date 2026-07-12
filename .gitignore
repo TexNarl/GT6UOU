@@ -1,0 +1,59 @@
+### Gradle ###
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/**/build/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/**/out/
+
+.run/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.eclipse/
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/**/bin/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Minecraft Modding ###
+run/
+!**/src/**/run/
+**/src/generated/**/.cache/
+repo/
+!**/src/**/repo/
+
+# Reference/source mods and modpacks - do not upload
+/Core-Modern-dev/
+/gregtech6-master/
+/GregTech-Modern-1.20.1/
+/GregTech-Odyssey-main/
+/Modpack-Modern-dev/
+/TerraFirmaCraft-1.21.x/
+
+# Codex/local workspace metadata
+/.agents/
+/.codex/
+
+# Temporary/generated visual tests
+/test_png/
+/tools/
+
+# Temporary planning docs
+/docs/

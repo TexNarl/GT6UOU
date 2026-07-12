@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "gt6uou:brown_clay",
+    "gt6uou:yellow_clay",
+    "gt6uou:red_clay",
+    "gt6uou:blue_clay",
+    "gt6uou:white_clay",
+    "gt6uou:sand",
+    "gt6uou:red_sand",
+    "gt6uou:black_sand",
+    "gt6uou:basaltic_black_sand",
+    "gt6uou:granitic_black_sand",
+    "gt6uou:turf"
+  ]
+}
