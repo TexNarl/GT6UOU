@@ -6,14 +6,10 @@ The project is early in development. At the moment it focuses mostly on foundati
 
 ## Current focus
 
-- GT-style stone layer generation.
-- Large ore veins tied to host rock types.
-- Rich, normal, and poor ore variants.
-- Raw material, crystal, and raw block resource forms.
-- Surface prospecting indicators for ore veins.
-- Clay, sand, turf, oilsands, raw oil pockets, and bedrock fluid deposit prototypes.
-- Developer tools for testing world generation.
+- GT6 energy system.
+- Making own textures for ores, rocks, stones and other stuff.
 - A basic in-game geology handbook.
+- Own "overworld" dimension with different worldgen(Like TFC).
 
 ## Target platform
 
@@ -24,20 +20,6 @@ The project is early in development. At the moment it focuses mostly on foundati
 ## Development status
 
 This is not a stable public gameplay release yet. APIs, registries, generated assets, world-generation behavior, and balance values may change heavily while the port is being built.
-
-## Building
-
-Use the Gradle wrapper:
-
-```powershell
-.\gradlew.bat build
-```
-
-For quick compile checks:
-
-```powershell
-.\gradlew.bat compileJava
-```
 
 ## Reference repositories
 
