@@ -9,7 +9,6 @@ import gregapi.data.NaturalResourceList;
 import gregapi.data.OreDropList;
 import gregtech.GT6UOU;
 import gregtech.dev.devtools.DayClockItem;
-import gregtech.dev.devtools.GeologyHandbookItem;
 import gregtech.dev.devtools.OreRevealToolItem;
 import gregtech.dev.devtools.OreScannerItem;
 import gregtech.dev.devtools.StrataCuttingToolItem;
@@ -69,11 +68,6 @@ public final class GTItems {
     public static final DeferredItem<Item> ORE_REVEAL_TOOL = ITEMS.register(
             "ore_reveal_tool",
             () -> new OreRevealToolItem(new Item.Properties().stacksTo(1))
-    );
-
-    public static final DeferredItem<Item> GEOLOGY_HANDBOOK = ITEMS.register(
-            "geology_handbook",
-            () -> new GeologyHandbookItem(new Item.Properties().stacksTo(1))
     );
 
     public static final DeferredItem<BlockItem> SURFACE_STICK = ITEMS.register(

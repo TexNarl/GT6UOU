@@ -3,9 +3,13 @@
   "package": "gregtech.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ChunkGeneratorMixin"
+    "worldgen.ChunkGeneratorMixin",
+    "worldgen.ChunkMapMixin",
+    "worldgen.RandomStateMixin"
   ],
   "client": [
+    "client.CreativeInventoryScreenMixin",
+    "client.InventoryScreenMixin",
     "client.TitleScreenMixin"
   ],
   "injectors": {

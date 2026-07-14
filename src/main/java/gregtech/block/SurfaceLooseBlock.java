@@ -2,7 +2,9 @@ package gregtech.block;
 
 import gregapi.code.BlockTypeDefinitions;
 import gregtech.registry.GTItems;
-import gregtech.worldgen.sampler.StoneLayerStackSampler;
+import gregapi.data.DimensionList;
+import gregtech.worldgen.earth.GTEarthChunkGenerator;
+import gregtech.worldgen.geology.StoneLayerStackSampler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -111,7 +113,8 @@ public class SurfaceLooseBlock extends Block {
         }
 
         int surfaceY = Math.max(level.getMinBuildHeight(), pos.getY() - 1);
-        String rockId = new StoneLayerStackSampler(serverLevel.getSeed()).sampleRockId(pos.getX(), surfaceY - 4, pos.getZ(), surfaceY);
+        StoneLayerStackSampler sampler = stoneLayerSampler(serverLevel);
+        String rockId = sampler.sampleRockId(pos.getX(), surfaceY - 4, pos.getZ(), surfaceY);
 
         Optional<BlockTypeDefinitions.RockType> rockType = GTItems.ROCK_ITEMS.keySet().stream()
                 .filter(rock -> rock.id().equals(rockId))
@@ -120,6 +123,16 @@ public class SurfaceLooseBlock extends Block {
         return rockType
                 .map(rock -> new ItemStack(GTItems.ROCK_ITEMS.get(rock).get()))
                 .orElseGet(() -> new ItemStack(Items.COBBLESTONE));
+    }
+
+    private static StoneLayerStackSampler stoneLayerSampler(ServerLevel level) {
+        if (level.dimension().equals(DimensionList.EARTH)
+                && level.getChunkSource().getGenerator() instanceof GTEarthChunkGenerator generator
+                && generator.earthState() != null) {
+            return generator.earthState().stoneLayerSampler();
+        }
+
+        return new StoneLayerStackSampler(level.getSeed());
     }
 
     public enum Kind {

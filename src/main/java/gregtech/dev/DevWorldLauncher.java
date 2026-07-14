@@ -28,7 +28,15 @@ public final class DevWorldLauncher {
         createDevWorld(returnScreen, true);
     }
 
+    public static void createEarthDevWorld(Screen returnScreen, long seed) {
+        createDevWorld(returnScreen, true, new WorldOptions(seed, true, false));
+    }
+
     private static void createDevWorld(Screen returnScreen, boolean earthWorld) {
+        createDevWorld(returnScreen, earthWorld, WorldOptions.defaultWithRandomSeed());
+    }
+
+    private static void createDevWorld(Screen returnScreen, boolean earthWorld, WorldOptions worldOptions) {
         Minecraft minecraft = Minecraft.getInstance();
         String suffix = LocalDateTime.now().format(WORLD_NAME_FORMAT);
         String levelId = earthWorld ? "GT6UOU_Earth_" + suffix : "GT6UOU_Dev_" + suffix;
@@ -51,7 +59,7 @@ public final class DevWorldLauncher {
         minecraft.createWorldOpenFlows().createFreshLevel(
                 levelId,
                 settings,
-                WorldOptions.defaultWithRandomSeed(),
+                worldOptions,
                 WorldPresets::createNormalWorldDimensions,
                 returnScreen
         );

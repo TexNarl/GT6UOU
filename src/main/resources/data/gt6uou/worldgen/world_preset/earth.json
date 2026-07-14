@@ -14,12 +14,18 @@
     "gt6uou:earth": {
       "type": "minecraft:overworld",
       "generator": {
-        "type": "minecraft:noise",
+        "type": "gt6uou:earth",
         "biome_source": {
-          "type": "minecraft:multi_noise",
-          "preset": "minecraft:overworld"
+          "type": "gt6uou:earth",
+          "delegate": {
+            "type": "minecraft:multi_noise",
+            "preset": "minecraft:overworld"
+          }
         },
-        "settings": "minecraft:overworld"
+        "settings": "minecraft:overworld",
+        "earth_settings": {
+          "format_version": 1
+        }
       }
     }
   }

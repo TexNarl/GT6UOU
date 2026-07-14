@@ -34,7 +34,7 @@ public class OreScannerItem extends Item {
 
     private static void openClientScreen() {
         try {
-            Class<?> hooks = Class.forName("gregtech.client.MineralScannerClient");
+            Class<?> hooks = Class.forName("gregtech.client.scanner.MineralScannerClient");
             hooks.getMethod("open").invoke(null);
         } catch (ReflectiveOperationException exception) {
             throw new IllegalStateException("Failed to open mineral scanner screen", exception);

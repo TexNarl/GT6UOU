@@ -39,7 +39,6 @@ public final class GTCreativeTabs {
                         output.accept(GTItems.DAY_CLOCK.get());
                         output.accept(GTItems.MINERAL_SCANNER.get());
                         output.accept(GTItems.ORE_REVEAL_TOOL.get());
-                        output.accept(GTItems.GEOLOGY_HANDBOOK.get());
                         output.accept(GTItems.SURFACE_STICK.get());
                         output.accept(GTItems.SURFACE_ROCK.get());
                     })

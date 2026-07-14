@@ -1,12 +1,15 @@
 package gregtech.dev;
 
-import gregtech.worldgen.GTDimensions;
+import gregapi.data.DimensionList;
+import gregtech.worldgen.earth.GTEarthChunkGenerator;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import gregtech.registry.GTItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 import java.util.HashSet;
@@ -59,25 +62,42 @@ public final class DevWorldGiftHandler {
         giveIfMissing(player, GTItems.DAY_CLOCK.get());
         giveIfMissing(player, GTItems.MINERAL_SCANNER.get());
         giveIfMissing(player, GTItems.ORE_REVEAL_TOOL.get());
-        giveIfMissing(player, GTItems.GEOLOGY_HANDBOOK.get());
     }
 
     private static void teleportToEarthOnce(ServerPlayer player, String levelName) {
         String teleportKey = levelName + ":" + player.getUUID();
 
-        if (!EARTH_TELEPORTED_PLAYERS.add(teleportKey) || player.level().dimension().equals(GTDimensions.EARTH)) {
+        if (!EARTH_TELEPORTED_PLAYERS.add(teleportKey) || player.level().dimension().equals(DimensionList.EARTH)) {
             return;
         }
 
-        ServerLevel earth = player.server.getLevel(GTDimensions.EARTH);
+        ServerLevel earth = player.server.getLevel(DimensionList.EARTH);
 
         if (earth == null) {
             player.displayClientMessage(Component.literal("GT Earth dimension is not loaded: gt6uou:earth"), false);
             return;
         }
 
-        player.teleportTo(earth, 0.5, 160.0, 0.5, player.getYRot(), player.getXRot());
-        player.displayClientMessage(Component.literal("Entered GT Earth (gt6uou:earth)."), false);
+        if (!(earth.getChunkSource().getGenerator() instanceof GTEarthChunkGenerator generator)
+                || generator.earthState() == null) {
+            player.displayClientMessage(Component.literal("GT Earth generator state is not ready."), false);
+            return;
+        }
+
+        BlockPos planned = generator.earthState().nearestContinentalSpawn();
+        earth.getChunk(planned.getX() >> 4, planned.getZ() >> 4);
+        int actualY = earth.getHeight(
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                planned.getX(),
+                planned.getZ()
+        ) + 1;
+        BlockPos spawn = new BlockPos(planned.getX(), actualY, planned.getZ());
+        player.teleportTo(earth, spawn.getX() + 0.5, spawn.getY(), spawn.getZ() + 0.5,
+                player.getYRot(), player.getXRot());
+        player.setRespawnPosition(DimensionList.EARTH, spawn, 0.0F, true, false);
+        player.displayClientMessage(Component.literal(
+                "Entered GT Earth on the nearest continent at " + spawn.getX() + ", " + spawn.getZ() + "."
+        ), false);
     }
 
     private static void giveIfMissing(ServerPlayer player, Item item) {

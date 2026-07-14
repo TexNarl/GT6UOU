@@ -1,6 +1,8 @@
 package gregtech.mixin.client;
 
 import gregtech.dev.DevWorldLauncher;
+import gregtech.client.earth.EarthCreateWorldPreviewScreen;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
@@ -26,7 +28,9 @@ public abstract class TitleScreenMixin extends Screen {
                 .build());
         this.addRenderableWidget(Button.builder(
                         DevWorldLauncher.earthButtonLabel(),
-                        button -> DevWorldLauncher.createEarthDevWorld((Screen) (Object) this)
+                        button -> Minecraft.getInstance().setScreen(
+                                new EarthCreateWorldPreviewScreen((Screen) (Object) this)
+                        )
                 )
                 .bounds(8, 32, 140, 20)
                 .build());

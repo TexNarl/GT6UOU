@@ -1,0 +1,34 @@
+{
+  "type": "gt6uou:earth_cave",
+  "config": {
+    "probability": 0.02,
+    "y": {
+      "type": "uniform",
+      "min_inclusive": { "absolute": -56 },
+      "max_inclusive": { "absolute": 126 }
+    },
+    "yScale": {
+      "type": "uniform",
+      "min_inclusive": 0.1,
+      "max_exclusive": 0.9
+    },
+    "lava_level": { "above_bottom": 8 },
+    "aquifers_enabled": true,
+    "horizontal_radius_multiplier": {
+      "type": "uniform",
+      "min_inclusive": 1.5,
+      "max_exclusive": 2.5
+    },
+    "vertical_radius_multiplier": {
+      "type": "uniform",
+      "min_inclusive": 1.5,
+      "max_exclusive": 2.5
+    },
+    "floor_level": {
+      "type": "uniform",
+      "min_inclusive": -1.0,
+      "max_exclusive": 0.3
+    },
+    "replaceable": "#gt6uou:earth_carver_replaceables"
+  }
+}

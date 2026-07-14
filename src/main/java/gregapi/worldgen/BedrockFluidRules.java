@@ -2,14 +2,13 @@ package gregapi.worldgen;
 
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.material.Fluid;
 
 import java.util.List;
 import java.util.Set;
-import java.util.function.Supplier;
 
 public final class BedrockFluidRules {
     private BedrockFluidRules() {
@@ -18,7 +17,7 @@ public final class BedrockFluidRules {
     public record BedrockFluidDefinition(
             String id,
             String englishName,
-            Supplier<? extends Fluid> fluid,
+            ResourceLocation fluidId,
             int weight,
             int minimumYield,
             int maximumYield,

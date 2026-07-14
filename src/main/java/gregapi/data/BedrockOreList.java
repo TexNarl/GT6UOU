@@ -3,7 +3,6 @@ package gregapi.data;
 import gregapi.worldgen.BedrockOreRules.BedrockOreDefinition;
 import gregapi.worldgen.BedrockOreRules.BiomeWeightModifier;
 import gregapi.worldgen.BedrockOreRules.WeightedOreResource;
-import gregtech.worldgen.GTDimensions;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
 
@@ -63,7 +62,7 @@ public final class BedrockOreList {
 
     @SuppressWarnings("unused")
     private static Set<ResourceKey<Level>> earthLike() {
-        return Set.of(Level.OVERWORLD, GTDimensions.EARTH);
+        return Set.of(Level.OVERWORLD, DimensionList.EARTH);
     }
 
     private static void validateOreResources() {

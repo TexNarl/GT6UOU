@@ -57,3 +57,7 @@ repo/
 
 # Temporary planning docs
 /docs/
+/WORLDGEN_TFG_EARTH_PLAN_FOR_CODEX.txt
+
+# Local runtime logs
+/logs/
